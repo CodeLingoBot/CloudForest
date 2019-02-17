@@ -150,7 +150,7 @@ func (target *NPTarget) ImpFromCounts(t int, counter *[]int) (e float64) {
 
 }
 
-//NPTarget.Impurity implements an impurity that minimizes false negatives subject
+// Impurity: NPTarget.Impurity implements an impurity that minimizes false negatives subject
 //to a soft constrain on fale positives.
 func (target *NPTarget) Impurity(cases *[]int, counter *[]int) (e float64) {
 

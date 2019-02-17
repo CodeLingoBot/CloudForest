@@ -32,7 +32,7 @@ func NewAdaCostTarget(f CatFeature) (abt *AdaCostTarget) {
 	return
 }
 
-/*RegretTarget.SetCosts puts costs in a map[string]float64 by feature name into the proper
+/* SetCosts: RegretTarget.SetCosts puts costs in a map[string]float64 by feature name into the proper
 entries in RegretTarget.Costs.*/
 func (target *AdaCostTarget) SetCosts(costmap map[string]float64) {
 	for i := 0; i < target.NCats(); i++ {

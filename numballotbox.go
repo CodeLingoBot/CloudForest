@@ -13,7 +13,7 @@ type NumBallotBox struct {
 	box []*RunningMean
 }
 
-//Build a new ballot box for the number of cases specified by "size".
+// NewNumBallotBox: Build a new ballot box for the number of cases specified by "size".
 func NewNumBallotBox(size int) *NumBallotBox {
 	bb := NumBallotBox{
 		make([]*RunningMean, 0, size)}
@@ -32,7 +32,7 @@ func (bb *NumBallotBox) Vote(casei int, pred string, weight float64) {
 
 }
 
-//TallyNumerical tallies the votes for the case specified by i as
+// TallyNum: tallies the votes for the case specified by i as
 //if it is a Numerical feature. Ie it returns the mean of all votes.
 func (bb *NumBallotBox) TallyNum(i int) (predicted float64) {
 	predicted, _ = bb.box[i].Read()
@@ -49,7 +49,7 @@ func (bb *NumBallotBox) Tally(i int) (predicted string) {
 	return
 }
 
-//TallySquareError returns the error of the votes vs the provided feature.
+// TallySquaredError returns the error of the votes vs the provided feature.
 //For categorical features it returns the error rate
 //For numerical features it returns mean squared error.
 //The provided feature must use the same index as the feature matrix
@@ -81,7 +81,7 @@ func (bb *NumBallotBox) TallySquaredError(feature Feature) (e float64) {
 
 }
 
-//TallyScore returns the squared error (unexplained variance) divided by the data variance.
+// TallyError returns the squared error (unexplained variance) divided by the data variance.
 func (bb *NumBallotBox) TallyError(feature Feature) (e float64) {
 	mean := 0.0
 	r2 := 0.0
@@ -110,7 +110,7 @@ func (bb *NumBallotBox) TallyError(feature Feature) (e float64) {
 
 }
 
-//Tally score returns the R2 score or coefichent of determination.
+// TallyR2Score: Tally score returns the R2 score or coefichent of determination.
 func (bb *NumBallotBox) TallyR2Score(feature Feature) (e float64) {
 
 	e = 1 - bb.TallyError(feature)

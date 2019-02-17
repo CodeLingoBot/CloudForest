@@ -25,8 +25,7 @@ func NewForestReader(r io.Reader) *ForestReader {
 	return &ForestReader{bufio.NewReader(r)}
 }
 
-/*
-ForestReader.ReadForest reads the next forest from the underlying reader.
+/* ReadForest: ForestReader.ReadForest reads the next forest from the underlying reader.
 If io.EOF or another error is encountered it returns that.
 */
 func (fr *ForestReader) ReadForest() (forest *Forest, err error) {
@@ -68,7 +67,7 @@ func (fr *ForestReader) ReadForest() (forest *Forest, err error) {
 	}
 }
 
-/*ForestReader.ReadTree reads the next tree from the underlying reader. If the next tree
+/* ReadTree: ForestReader.ReadTree reads the next tree from the underlying reader. If the next tree
 is in a new forest it returns a forest object as well. If an io.EOF or other error is
 encountered it returns that as well as any partially parsed structs.*/
 func (fr *ForestReader) ReadTree() (tree *Tree, forest *Forest, err error) {

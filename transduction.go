@@ -51,8 +51,7 @@ func NewTransTarget(t CatFeature, fm *[]Feature, unlabeled string, alpha, beta f
 
 }
 
-/*
-TransTarget.SplitImpurity is a density estimating version of SplitImpurity.
+/* SplitImpurity: TransTarget.SplitImpurity is a density estimating version of SplitImpurity.
 */
 func (target *TransTarget) SplitImpurity(l *[]int, r *[]int, m *[]int, allocs *BestSplitAllocs) (impurityDecrease float64) {
 	if target.Alpha == 0.0 {
@@ -91,7 +90,7 @@ func (target *TransTarget) Impurity(cases *[]int, counter *[]int) (e float64) {
 	return
 }
 
-/*TransTarget.Density uses an impurity designed to maximize the density within each side of the split
+/* Density: TransTarget.Density uses an impurity designed to maximize the density within each side of the split
 based on the method in "Density Estimating Trees" by Parikshit Ram and Alexander G. Gray.
 It loops over all of the non target features and for the ones with non zero span calculates product(span_i)/(t*t)
 where t is the number of cases.
@@ -131,7 +130,7 @@ func (target *TransTarget) Density(cases *[]int, counter *[]int) (e float64) {
 	return
 }
 
-//TransTarget.FindPredicted returns the prediction of the specified cases which is the majority
+// FindPredicted: TransTarget.FindPredicted returns the prediction of the specified cases which is the majority
 //class that is not the unlabeled class. A set of cases will only be predicted to be the ulabeled
 //class if has no labeled points.
 func (target *TransTarget) FindPredicted(cases []int) string {

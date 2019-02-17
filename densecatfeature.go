@@ -960,7 +960,7 @@ func (target *DenseCatFeature) SplitImpurity(l *[]int, r *[]int, m *[]int, alloc
 	return
 }
 
-//MoveCoutsRtoL moves the by case counts from R to L for use in iterave updates.
+// MoveCountsRtoL: MoveCountsRtoL moves the by case counts from R to L for use in iterave updates.
 func (target *DenseCatFeature) MoveCountsRtoL(allocs *BestSplitAllocs, movedRtoL *[]int) {
 	var cat, i int
 	catdata := target.CatData

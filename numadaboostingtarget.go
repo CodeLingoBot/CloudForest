@@ -26,8 +26,7 @@ func NewNumAdaBoostTarget(f NumFeature) (abt *NumAdaBoostTarget) {
 	return
 }
 
-/*
-NumAdaBoostTarget.SplitImpurity is an AdaBoosting version of SplitImpurity.
+/* SplitImpurity: NumAdaBoostTarget.SplitImpurity is an AdaBoosting version of SplitImpurity.
 */
 func (target *NumAdaBoostTarget) SplitImpurity(l *[]int, r *[]int, m *[]int, allocs *BestSplitAllocs) (impurityDecrease float64) {
 	nl := float64(len(*l))
@@ -51,7 +50,7 @@ func (target *NumAdaBoostTarget) UpdateSImpFromAllocs(l *[]int, r *[]int, m *[]i
 	return target.SplitImpurity(l, r, m, allocs)
 }
 
-//NumAdaBoostTarget.Impurity is an AdaBoosting that uses the weights specified in NumAdaBoostTarget.weights.
+// Impurity: NumAdaBoostTarget.Impurity is an AdaBoosting that uses the weights specified in NumAdaBoostTarget.weights.
 func (target *NumAdaBoostTarget) Impurity(cases *[]int, counter *[]int) (e float64) {
 	e = 0.0
 	m := target.Predicted(cases)
@@ -64,7 +63,7 @@ func (target *NumAdaBoostTarget) Impurity(cases *[]int, counter *[]int) (e float
 	return
 }
 
-//AdaBoostTarget.Boost performs numerical adaptive boosting using the specified partition and
+// Boost: AdaBoostTarget.Boost performs numerical adaptive boosting using the specified partition and
 //returns the weight that tree that generated the partition should be given.
 //Trees with error greater then the impurity of the total feature (NormFactor) times the number
 //of partions are given zero weight. Other trees have tree weight set to:

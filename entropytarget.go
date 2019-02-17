@@ -17,8 +17,7 @@ func NewEntropyTarget(f CatFeature) *EntropyTarget {
 	return &EntropyTarget{f}
 }
 
-/*
-EntropyTarget.SplitImpurity is a version of Split Impurity that calls EntropyTarget.Impurity
+/* SplitImpurity: EntropyTarget.SplitImpurity is a version of Split Impurity that calls EntropyTarget.Impurity
 */
 func (target *EntropyTarget) SplitImpurity(l *[]int, r *[]int, m *[]int, allocs *BestSplitAllocs) (impurityDecrease float64) {
 	nl := float64(len(*l))
@@ -67,7 +66,7 @@ func (target *EntropyTarget) ImpFromCounts(total int, counts *[]int) (e float64)
 
 }
 
-//EntropyTarget.Impurity implements categorical entropy as sum(pj*log2(pj)) where pj
+// Impurity: EntropyTarget.Impurity implements categorical entropy as sum(pj*log2(pj)) where pj
 //is the number of cases with the j'th category over the total number of cases.
 func (target *EntropyTarget) Impurity(cases *[]int, counts *[]int) (e float64) {
 

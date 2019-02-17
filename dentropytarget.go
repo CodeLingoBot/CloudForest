@@ -23,7 +23,7 @@ func NewDEntropyTarget(f CatFeature) *DEntropyTarget {
 	return &DEntropyTarget{f, make([]float64, f.NCats())}
 }
 
-/*NewDEntropyTarget.SetCosts puts costs in a map[string]float64 by feature name into the proper
+/* SetCosts: NewDEntropyTarget.SetCosts puts costs in a map[string]float64 by feature name into the proper
 entries in NewDEntropyTarget.Costs.*/
 func (target *DEntropyTarget) SetCosts(costmap map[string]float64) {
 	for i := 0; i < target.NCats(); i++ {
@@ -32,8 +32,7 @@ func (target *DEntropyTarget) SetCosts(costmap map[string]float64) {
 	}
 }
 
-/*
-DEntropyTarget.SplitImpurity is a version of Split Impurity that calls DEntropyTarget.Impurity
+/* SplitImpurity: DEntropyTarget.SplitImpurity is a version of Split Impurity that calls DEntropyTarget.Impurity
 */
 func (target *DEntropyTarget) SplitImpurity(l *[]int, r *[]int, m *[]int, allocs *BestSplitAllocs) (impurityDecrease float64) {
 	nl := float64(len(*l))
@@ -113,7 +112,7 @@ func (target *DEntropyTarget) FindPredicted(cases []int) (pred string) {
 	return fmt.Sprintf("%v", prob_true)
 }
 
-//DEntropyTarget.Impurity implements categorical entropy as sum(pj*log2(pj)) where pj
+// Impurity: DEntropyTarget.Impurity implements categorical entropy as sum(pj*log2(pj)) where pj
 //is the number of cases with the j'th category over the total number of cases.
 func (target *DEntropyTarget) Impurity(cases *[]int, counts *[]int) (e float64) {
 

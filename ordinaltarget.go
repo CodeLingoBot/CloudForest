@@ -32,8 +32,7 @@ func NewOrdinalTarget(f NumFeature) (abt *OrdinalTarget) {
 	return
 }
 
-/*
-OrdinalTarget.SplitImpurity is an ordinal version of SplitImpurity.
+/* SplitImpurity: OrdinalTarget.SplitImpurity is an ordinal version of SplitImpurity.
 */
 func (target *OrdinalTarget) SplitImpurity(l *[]int, r *[]int, m *[]int, allocs *BestSplitAllocs) (impurityDecrease float64) {
 	nl := float64(len(*l))
@@ -80,7 +79,7 @@ func (f *OrdinalTarget) Mode(cases *[]int) (m float64) {
 
 }
 
-//OrdinalTarget.Impurity is an ordinal version of impurity using Mode instead of Mean for prediction.
+// Impurity: OrdinalTarget.Impurity is an ordinal version of impurity using Mode instead of Mean for prediction.
 func (target *OrdinalTarget) Impurity(cases *[]int, counter *[]int) (e float64) {
 	m := target.Predicted(cases)
 	e = target.Error(cases, m)

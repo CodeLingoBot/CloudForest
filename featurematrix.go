@@ -340,7 +340,7 @@ func (fm *FeatureMatrix) LoadCases(data *csv.Reader, rowlabels bool) {
 
 }
 
-//Parse an AFM (annotated feature matrix) out of an io.Reader
+// ParseAFM: Parse an AFM (annotated feature matrix) out of an io.Reader
 //AFM format is a tsv with row and column headers where the row headers start with
 //N: indicating numerical, C: indicating categorical or B: indicating boolean
 //For this parser features without N: are assumed to be categorical

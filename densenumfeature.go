@@ -84,7 +84,7 @@ func (f *DenseNumFeature) Get(i int) float64 {
 	return f.NumData[i]
 }
 
-//Get str returns the string representing the value in the i'th position. It returns NA if tehe value is missing.
+// GetStr gets str returns the string representing the value in the i'th position. It returns NA if tehe value is missing.
 func (f *DenseNumFeature) GetStr(i int) (value string) {
 	if f.Missing[i] {
 		return "NA"
@@ -205,7 +205,7 @@ func (f *DenseNumFeature) SplitPoints(codedSplit interface{}, cs *[]int) (int, i
 	return lastleft, lastright
 }
 
-//Decode split builds a splitter from the numeric values returned by BestNumSplit or
+// DecodeSplit decodes split builds a splitter from the numeric values returned by BestNumSplit or
 //BestCatSplit. Numeric splitters are decoded to send values <= num left. Categorical
 //splitters are decoded to send categorical values for which the bit in cat is 1 left.
 func (f *DenseNumFeature) DecodeSplit(codedSplit interface{}) (s *Splitter) {
@@ -577,7 +577,7 @@ func (f *DenseNumFeature) Span(cases *[]int, counter *[]int) (span float64) {
 
 }
 
-//Find predicted takes the indexes of a set of cases and returns the
+// FindPredicted: Find predicted takes the indexes of a set of cases and returns the
 //predicted value. For categorical features this is a string containing the
 //most common category and for numerical it is the mean of the values.
 func (f *DenseNumFeature) FindPredicted(cases []int) (pred string) {

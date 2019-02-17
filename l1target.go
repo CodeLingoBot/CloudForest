@@ -11,8 +11,7 @@ type L1Target struct {
 	NumFeature
 }
 
-/*
-L1Target.SplitImpurity is an L1 version of SplitImpurity.
+/* SplitImpurity: L1Target.SplitImpurity is an L1 version of SplitImpurity.
 */
 func (target *L1Target) SplitImpurity(l *[]int, r *[]int, m *[]int, allocs *BestSplitAllocs) (impurityDecrease float64) {
 	nl := float64(len(*l))
@@ -36,7 +35,7 @@ func (target *L1Target) UpdateSImpFromAllocs(l *[]int, r *[]int, m *[]int, alloc
 	return target.SplitImpurity(l, r, m, allocs)
 }
 
-//L1Target.Impurity is an L1 version of impurity returning L1 instead of squared error.
+// Impurity: L1Target.Impurity is an L1 version of impurity returning L1 instead of squared error.
 func (target *L1Target) Impurity(cases *[]int, counter *[]int) (e float64) {
 	m := target.Mean(cases)
 	e = target.Error(cases, m)
@@ -44,7 +43,7 @@ func (target *L1Target) Impurity(cases *[]int, counter *[]int) (e float64) {
 
 }
 
-//L1Target.MeanL1Error returns the  Mean L1 norm error of the cases specified vs the predicted
+// Error: L1Target.MeanL1Error returns the  Mean L1 norm error of the cases specified vs the predicted
 //value. Only non missing cases are considered.
 func (target *L1Target) Error(cases *[]int, predicted float64) (e float64) {
 	e = 0.0

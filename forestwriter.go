@@ -38,7 +38,7 @@ func (fw *ForestWriter) WriteTree(tree *Tree, ntree int) {
 	fw.WriteNodeAndChildren(tree.Root, "*")
 }
 
-//WrieTreeHeader writes only the header line for a tree.
+// WriteTreeHeader writes only the header line for a tree.
 func (fw *ForestWriter) WriteTreeHeader(ntree int, target string, weight float64) {
 	weightterm := ""
 	if weight >= 0.0 {
@@ -47,7 +47,7 @@ func (fw *ForestWriter) WriteTreeHeader(ntree int, target string, weight float64
 	fmt.Fprintf(fw.w, "TREE=%v,TARGET=\"%v\"%v\n", ntree, target, weightterm)
 }
 
-//WrieTreeHeader writes only the header line for a tree.
+// WriteForestHeader writes only the header line for a tree.
 func (fw *ForestWriter) WriteForestHeader(nforest int, target string, intercept float64) {
 	interceptterm := ""
 	if intercept != 0.0 {

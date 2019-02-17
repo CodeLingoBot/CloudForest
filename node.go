@@ -23,7 +23,7 @@ type Node struct {
 	Splitter   *Splitter
 }
 
-//vist each child node with the supplied function
+// Climb: vist each child node with the supplied function
 func (n *Node) Climb(c func(*Node)) {
 	c(n)
 	if n.Left != nil {

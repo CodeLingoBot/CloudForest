@@ -40,7 +40,7 @@ func (f *GradBoostTarget) Intercept() float64 {
 	return f.Mean
 }
 
-//BUG(ryan) does GradBoostingTarget need seperate residuals and values?
+// Boost: BUG(ryan) does GradBoostingTarget need seperate residuals and values?
 func (f *GradBoostTarget) Boost(leaves *[][]int, preds *[]string) (weight float64) {
 	for i, cases := range *leaves {
 		f.Update(&cases, ParseFloat((*preds)[i]))
@@ -92,7 +92,7 @@ func FriedmanScore(allocs *BestSplitAllocs, l, r *[]int) (impurityDecrease float
 
 }
 
-// Friedman MSE slit improvment score from from equation 35 in "Greedy Function Approximation: A Gradiet Boosting Machine"
+// SplitImpurity: Friedman MSE slit improvment score from from equation 35 in "Greedy Function Approximation: A Gradiet Boosting Machine"
 // Todo...what should the parent impurity be
 func (target *GradBoostTarget) SplitImpurity(l *[]int, r *[]int, m *[]int, allocs *BestSplitAllocs) (impurityDecrease float64) {
 

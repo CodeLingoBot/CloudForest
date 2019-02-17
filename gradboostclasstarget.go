@@ -75,7 +75,7 @@ func (f *GradBoostClassTarget) Intercept() float64 {
 	return f.Prior
 }
 
-//BUG(ryan) does GradBoostingTarget need seperate residuals and values?
+// Boost: BUG(ryan) does GradBoostingTarget need seperate residuals and values?
 func (f *GradBoostClassTarget) Boost(leaves *[][]int, preds *[]string) (weight float64) {
 	for i, cases := range *leaves {
 		f.Update(&cases, ParseFloat((*preds)[i]))

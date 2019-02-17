@@ -24,7 +24,7 @@ func NewRegretTarget(f CatFeature) *RegretTarget {
 	return &RegretTarget{f, make([]float64, f.NCats())}
 }
 
-/*RegretTarget.SetCosts puts costs in a map[string]float64 by feature name into the proper
+/* SetCosts: RegretTarget.SetCosts puts costs in a map[string]float64 by feature name into the proper
 entries in RegretTarget.Costs.*/
 func (target *RegretTarget) SetCosts(costmap map[string]float64) {
 	for i := 0; i < target.NCats(); i++ {
@@ -33,8 +33,7 @@ func (target *RegretTarget) SetCosts(costmap map[string]float64) {
 	}
 }
 
-/*
-RegretTarget.SplitImpurity is a version of Split Impurity that calls RegretTarget.Impurity
+/* SplitImpurity: RegretTarget.SplitImpurity is a version of Split Impurity that calls RegretTarget.Impurity
 */
 func (target *RegretTarget) SplitImpurity(l *[]int, r *[]int, m *[]int, allocs *BestSplitAllocs) (impurityDecrease float64) {
 	nl := float64(len(*l))

@@ -18,8 +18,7 @@ func NewHDistanceTarget(f CatFeature, pos_class string) *HDistanceTarget {
 	return &HDistanceTarget{f, pos_class}
 }
 
-/*
-HDistanceTarget.SplitImpurity is a version of Split Impurity that calls HDistanceTarget.Impurity
+/* SplitImpurity: HDistanceTarget.SplitImpurity is a version of Split Impurity that calls HDistanceTarget.Impurity
 */
 func (target *HDistanceTarget) SplitImpurity(l *[]int, r *[]int, m *[]int, allocs *BestSplitAllocs) float64 {
 	target.CountPerCat(l, allocs.LCounter)
@@ -79,7 +78,7 @@ func (target *HDistanceTarget) FindPredicted(cases []int) (pred string) {
 	return fmt.Sprintf("%v", prob_true)
 }
 
-//HDistanceTarget.Impurity
+// Impurity: HDistanceTarget.Impurity
 func (target *HDistanceTarget) Impurity(cases *[]int, counts *[]int) (e float64) {
 
 	return -1.0

@@ -17,8 +17,7 @@ func (target *DensityTarget) GetName() string {
 	return "DensityTarget"
 }
 
-/*
-DensityTarget.SplitImpurity is a density estimating version of SplitImpurity.
+/* SplitImpurity: DensityTarget.SplitImpurity is a density estimating version of SplitImpurity.
 */
 func (target *DensityTarget) SplitImpurity(l *[]int, r *[]int, m *[]int, allocs *BestSplitAllocs) (impurityDecrease float64) {
 	nl := float64(len(*l))
@@ -42,7 +41,7 @@ func (target *DensityTarget) UpdateSImpFromAllocs(l *[]int, r *[]int, m *[]int, 
 	return target.SplitImpurity(l, r, m, allocs)
 }
 
-//DensityTarget.Impurity uses the impurity measure defined in "Density Estimating Trees"
+// Impurity: DensityTarget.Impurity uses the impurity measure defined in "Density Estimating Trees"
 //by Parikshit Ram and Alexander G. Gray
 func (target *DensityTarget) Impurity(cases *[]int, counter *[]int) (e float64) {
 	t := len(*cases)
@@ -60,7 +59,7 @@ func (target *DensityTarget) Impurity(cases *[]int, counter *[]int) (e float64) 
 	return
 }
 
-//DensityTarget.FindPredicted returns the string representation of the density in the region
+// FindPredicted: DensityTarget.FindPredicted returns the string representation of the density in the region
 //spaned by the specified cases.
 func (target *DensityTarget) FindPredicted(cases []int) string {
 	t := len(cases)

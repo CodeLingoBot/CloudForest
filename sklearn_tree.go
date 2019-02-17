@@ -73,7 +73,7 @@ func NewScikitTree(nFeatures int) *ScikitTree {
 	return tree
 }
 
-// BuildScikkitTree currentelly only builds the split threshold and node structure of a sickit tree from a
+// BuildScikitTree: currentelly only builds the split threshold and node structure of a sickit tree from a
 // Cloudforest tree specified by root node
 func BuildScikitTree(depth int, n *Node, sktree *ScikitTree) {
 	if depth > sktree.MaxDepth {
